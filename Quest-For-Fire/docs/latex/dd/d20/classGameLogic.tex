@@ -1,0 +1,104 @@
+\hypertarget{classGameLogic}{\section{Game\-Logic Class Reference}
+\label{classGameLogic}\index{Game\-Logic@{Game\-Logic}}
+}
+Inheritance diagram for Game\-Logic\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dd/d20/classGameLogic}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classGameLogic_a3c8aac57f25ae1d7d83144a22b6a6569}{running} ()
+\item 
+void \hyperlink{classGameLogic_a5c8a5055ff4a003a255bcdf52cbd4d2c}{Start} ()
+\item 
+void \hyperlink{classGameLogic_a53f9f036abbff3736a0d2bed33198b06}{Stop} ()
+\item 
+void \hyperlink{classGameLogic_a3a00031f831728a8073b58229e3d23c4}{create\-Troglodyte} ()
+\item 
+void \hyperlink{classGameLogic_a51ad9cef9c4414961b2f025bf659c068}{run} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Thread \hyperlink{classGameLogic_a63998de862313caa158c414ad3a8dad0}{worker}
+\item 
+Semaphore \hyperlink{classGameLogic_a09c53c7f1a59ad90cd34966360edddcc}{main\-Sync}
+\item 
+volatile \hyperlink{classGameplayObjectsList}{Gameplay\-Objects\-List} \hyperlink{classGameLogic_a48be08c7f3371c4e6fc68aaf6c839afe}{objects\-List}
+\item 
+volatile boolean \hyperlink{classGameLogic_af6686d787ae2639adc84f522f332c3ee}{running}
+\item 
+Random \hyperlink{classGameLogic_a1b940a2b65f42fdee9ee1fb7a910b1d2}{ran}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classGameLogic_ad140b2df5a64378f6039ba1f683f6b9f}{speed} = 50
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGameLogic_a3a00031f831728a8073b58229e3d23c4}{\index{Game\-Logic@{Game\-Logic}!create\-Troglodyte@{create\-Troglodyte}}
+\index{create\-Troglodyte@{create\-Troglodyte}!GameLogic@{Game\-Logic}}
+\subsubsection[{create\-Troglodyte}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Logic.\-create\-Troglodyte (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameLogic_a3a00031f831728a8073b58229e3d23c4}
+\hypertarget{classGameLogic_a51ad9cef9c4414961b2f025bf659c068}{\index{Game\-Logic@{Game\-Logic}!run@{run}}
+\index{run@{run}!GameLogic@{Game\-Logic}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Logic.\-run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameLogic_a51ad9cef9c4414961b2f025bf659c068}
+Główna pętla logiki gry.\hypertarget{classGameLogic_a3c8aac57f25ae1d7d83144a22b6a6569}{\index{Game\-Logic@{Game\-Logic}!running@{running}}
+\index{running@{running}!GameLogic@{Game\-Logic}}
+\subsubsection[{running}]{\setlength{\rightskip}{0pt plus 5cm}boolean Game\-Logic.\-running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameLogic_a3c8aac57f25ae1d7d83144a22b6a6569}
+\hypertarget{classGameLogic_a5c8a5055ff4a003a255bcdf52cbd4d2c}{\index{Game\-Logic@{Game\-Logic}!Start@{Start}}
+\index{Start@{Start}!GameLogic@{Game\-Logic}}
+\subsubsection[{Start}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Logic.\-Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameLogic_a5c8a5055ff4a003a255bcdf52cbd4d2c}
+\hypertarget{classGameLogic_a53f9f036abbff3736a0d2bed33198b06}{\index{Game\-Logic@{Game\-Logic}!Stop@{Stop}}
+\index{Stop@{Stop}!GameLogic@{Game\-Logic}}
+\subsubsection[{Stop}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-Logic.\-Stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameLogic_a53f9f036abbff3736a0d2bed33198b06}
+Gdy zażądano przerwania gry. Ta metoda może być wywołana również przez dowolny panel.
+
+\subsection{Member Data Documentation}
+\hypertarget{classGameLogic_a09c53c7f1a59ad90cd34966360edddcc}{\index{Game\-Logic@{Game\-Logic}!main\-Sync@{main\-Sync}}
+\index{main\-Sync@{main\-Sync}!GameLogic@{Game\-Logic}}
+\subsubsection[{main\-Sync}]{\setlength{\rightskip}{0pt plus 5cm}Semaphore Game\-Logic.\-main\-Sync\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameLogic_a09c53c7f1a59ad90cd34966360edddcc}
+\hypertarget{classGameLogic_a48be08c7f3371c4e6fc68aaf6c839afe}{\index{Game\-Logic@{Game\-Logic}!objects\-List@{objects\-List}}
+\index{objects\-List@{objects\-List}!GameLogic@{Game\-Logic}}
+\subsubsection[{objects\-List}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf Gameplay\-Objects\-List} Game\-Logic.\-objects\-List\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameLogic_a48be08c7f3371c4e6fc68aaf6c839afe}
+\hypertarget{classGameLogic_a1b940a2b65f42fdee9ee1fb7a910b1d2}{\index{Game\-Logic@{Game\-Logic}!ran@{ran}}
+\index{ran@{ran}!GameLogic@{Game\-Logic}}
+\subsubsection[{ran}]{\setlength{\rightskip}{0pt plus 5cm}Random Game\-Logic.\-ran\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameLogic_a1b940a2b65f42fdee9ee1fb7a910b1d2}
+\hypertarget{classGameLogic_af6686d787ae2639adc84f522f332c3ee}{\index{Game\-Logic@{Game\-Logic}!running@{running}}
+\index{running@{running}!GameLogic@{Game\-Logic}}
+\subsubsection[{running}]{\setlength{\rightskip}{0pt plus 5cm}volatile boolean Game\-Logic.\-running\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameLogic_af6686d787ae2639adc84f522f332c3ee}
+\hypertarget{classGameLogic_ad140b2df5a64378f6039ba1f683f6b9f}{\index{Game\-Logic@{Game\-Logic}!speed@{speed}}
+\index{speed@{speed}!GameLogic@{Game\-Logic}}
+\subsubsection[{speed}]{\setlength{\rightskip}{0pt plus 5cm}final int Game\-Logic.\-speed = 50\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classGameLogic_ad140b2df5a64378f6039ba1f683f6b9f}
+\hypertarget{classGameLogic_a63998de862313caa158c414ad3a8dad0}{\index{Game\-Logic@{Game\-Logic}!worker@{worker}}
+\index{worker@{worker}!GameLogic@{Game\-Logic}}
+\subsubsection[{worker}]{\setlength{\rightskip}{0pt plus 5cm}Thread Game\-Logic.\-worker\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameLogic_a63998de862313caa158c414ad3a8dad0}
+Klasa zarządzająca logiką gry. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{GameLogic_8java}{Game\-Logic.\-java}\end{DoxyCompactItemize}
