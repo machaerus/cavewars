@@ -12,12 +12,14 @@ public class GameWindow extends JFrame {
 	private Semaphore panelSemaphore;
 	//private Semaphore mainSync;
 	private volatile GameplayObjectsList objectsList;
+	private volatile Map map;
 
-	GameWindow(GameLogic gameLogic, Semaphore mainSync, GameplayObjectsList ol) throws Exception {
+	GameWindow(GameLogic gameLogic, Semaphore mainSync, GameplayObjectsList ol, Map map) throws Exception {
 		super(title);
 		this.gameLogic = gameLogic;
 		//this.mainSync = mainSync;
 		this.objectsList = ol;
+		this.map = map;
 		setLocation(50, 50);
 	}
 	
@@ -25,7 +27,7 @@ public class GameWindow extends JFrame {
 		
 		panelSemaphore = new Semaphore(0, true);
 		try {
-			mapPanel = new MapPanel(gameLogic, panelSemaphore, objectsList);
+			mapPanel = new MapPanel(gameLogic, panelSemaphore, objectsList, map);
 		} catch (Exception e) {
 			System.err.println("Błąd podczas tworzenia obiektu mapPanel.");
 			e.printStackTrace();

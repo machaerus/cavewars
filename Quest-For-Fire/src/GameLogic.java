@@ -10,14 +10,16 @@ public class GameLogic implements Runnable {
 	private Thread worker;
 	private Semaphore mainSync;
 	private volatile GameplayObjectsList objectsList;
+	private volatile Map map;
 	private volatile boolean running; 
 	private Random ran;
 	private static final int speed = 50;
 	
-	GameLogic(Semaphore mainSync, GameplayObjectsList ol) throws Exception {
+	GameLogic(Semaphore mainSync, GameplayObjectsList ol, Map map) throws Exception {
 		
 		this.mainSync = mainSync;
 		this.objectsList = ol;
+		this.map = map;
 		this.running = false;
 		this.ran = new Random();
 		
@@ -49,15 +51,15 @@ public class GameLogic implements Runnable {
 	
 	public void createTroglodyte() {
 		//System.out.println("gameLogic: Tworzę troglodytę.");
-		Troglodyte t = new Troglodyte();
-		t.place(ran.nextInt(580), ran.nextInt(380));
+		Troglodyte t = new Troglodyte(map);
+		map.place(t, ran.nextInt(58), ran.nextInt(38));
 		synchronized(objectsList) {
 			objectsList.addGameObject(t);
 			//System.out.println("gameLogic: No stworzyłem.");
 		}
 		t.setVisible(true);
-		
 	}
+	
 	
 	public void run() {
 		/**

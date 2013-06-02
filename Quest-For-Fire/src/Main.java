@@ -9,6 +9,7 @@ public class Main {
 	 */
 	
 	private static GameplayObjectsList objectsList;
+	private static Map map;
 	
 	public static void main(String[] args) {
 		
@@ -16,9 +17,10 @@ public class Main {
 		GameWindow gameWindow = null;
 		Semaphore mainSync = new Semaphore(0,true);
 		objectsList = new GameplayObjectsList();
+		map = new Map(60,40);
 		
 		try {
-			gameLogic = new GameLogic(mainSync, objectsList);
+			gameLogic = new GameLogic(mainSync, objectsList, map);
 		} catch (Exception e) {
 			System.err.println("Main: Błąd przy tworzeniu obiektu GameLogic");
 			e.printStackTrace();
@@ -26,7 +28,7 @@ public class Main {
 		}
 		
 		try {
-			gameWindow = new GameWindow(gameLogic, mainSync, objectsList);
+			gameWindow = new GameWindow(gameLogic, mainSync, objectsList, map);
 		} catch (Exception e) {
 			System.err.println("Main: Błąd przy tworzeniu obiektu GameWindow");
 			e.printStackTrace();

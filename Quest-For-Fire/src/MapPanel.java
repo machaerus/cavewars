@@ -30,11 +30,13 @@ public class MapPanel extends JPanel implements Runnable {
 	private GameLogic gameLogic;
 	private Semaphore semaphore;
 	private volatile GameplayObjectsList objectsList;
+	private volatile Map map;
 	
-	MapPanel(GameLogic gameLogic, Semaphore semaphore, GameplayObjectsList ol) throws Exception {
+	MapPanel(GameLogic gameLogic, Semaphore semaphore, GameplayObjectsList ol, Map map) throws Exception {
 		this.gameLogic = gameLogic;
 		this.semaphore = semaphore;
 		this.objectsList = ol;
+		this.map = map;
 		this.running = false;
 		enableEvents(AWTEvent.WINDOW_EVENT_MASK);
 		setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
@@ -117,9 +119,18 @@ public class MapPanel extends JPanel implements Runnable {
 		
 		// czyścime tło
 		
-		dbg.setColor(Color.darkGray);
+		dbg.setColor(Color.white);
 		dbg.fillRect(0, 0, PWIDTH, PHEIGHT);
 		//dbg.drawImage(background, 0, 0, null);
+		
+		// rysujemy tło mapy
+		
+		for(int i = 0; i < map.getWidth(); i++) {
+			for(int j = 0; j < map.getHeight(); j++) {
+				dbg.setColor(Color.darkGray);
+				dbg.fillRect(i*10, j*10, 10, 10);
+			}
+		}
 		
 		// rysujemy widoczne elementy z objectsList
 		
@@ -169,7 +180,7 @@ public class MapPanel extends JPanel implements Runnable {
 	}
 
 	public void stopGame() {
-		/*
+		/**
 		 * Prosi gameLogic o zakończenie gry (nie może sam o tym zadecydować).
 		 */
 		gameLogic.Stop();

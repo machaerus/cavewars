@@ -14,11 +14,11 @@ public class Squadron {
 		this.y = y;
 		troops = new LinkedList<Troglodyte>();
 		Troglodyte tmp;
-		for(int i = 0; i < n; i++) {
-			tmp = new Troglodyte();
-			tmp.place(this.x + 10 * i, this.y);
-			troops.add(tmp);
-		}
+//		for(int i = 0; i < n; i++) {
+//			tmp = new Troglodyte();
+//			tmp.place(this.x + 10 * i, this.y);
+//			troops.add(tmp);
+//		}
 		// kolejka rozkazów ograniczona - maksymalnie N na raz oczekujacych
 		orders = new LinkedBlockingQueue<Order>(10);
 	}
