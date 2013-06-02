@@ -10,6 +10,7 @@ public class Main {
 	
 	private static GameplayObjectsList objectsList;
 	private static Map map;
+	private static int speed = 300;
 	
 	public static void main(String[] args) {
 		
@@ -20,7 +21,7 @@ public class Main {
 		map = new Map(60,40);
 		
 		try {
-			gameLogic = new GameLogic(mainSync, objectsList, map);
+			gameLogic = new GameLogic(speed, mainSync, objectsList, map);
 		} catch (Exception e) {
 			System.err.println("Main: Błąd przy tworzeniu obiektu GameLogic");
 			e.printStackTrace();
@@ -28,7 +29,7 @@ public class Main {
 		}
 		
 		try {
-			gameWindow = new GameWindow(gameLogic, mainSync, objectsList, map);
+			gameWindow = new GameWindow(speed, gameLogic, mainSync, objectsList, map);
 		} catch (Exception e) {
 			System.err.println("Main: Błąd przy tworzeniu obiektu GameWindow");
 			e.printStackTrace();

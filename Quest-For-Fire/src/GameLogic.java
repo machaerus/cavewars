@@ -13,10 +13,11 @@ public class GameLogic implements Runnable {
 	private volatile Map map;
 	private volatile boolean running; 
 	private Random ran;
-	private static final int speed = 50;
+	private volatile int speed;
 	
-	GameLogic(Semaphore mainSync, GameplayObjectsList ol, Map map) throws Exception {
+	GameLogic(int speed, Semaphore mainSync, GameplayObjectsList ol, Map map) throws Exception {
 		
+		this.speed = speed;
 		this.mainSync = mainSync;
 		this.objectsList = ol;
 		this.map = map;
@@ -58,8 +59,20 @@ public class GameLogic implements Runnable {
 			//System.out.println("gameLogic: No stworzyłem.");
 		}
 		t.setVisible(true);
+		t.addOrder(new Order("stray",100));
 	}
 	
+	private void update() {
+		GameplayObject gpo;
+		objectsList.resetPointer();
+		synchronized(objectsList) {
+			while(true) {
+				gpo = objectsList.nextVisible();
+				if(gpo != null) gpo.work();
+				else break;
+			}
+		}
+	}
 	
 	public void run() {
 		/**
@@ -67,6 +80,9 @@ public class GameLogic implements Runnable {
 		 */
 		while(running) {
 			//System.out.println("GameLogic melduje działanie.");
+			
+			update();
+			
 			try {
 				Thread.sleep(speed);
 			} catch (InterruptedException e) {

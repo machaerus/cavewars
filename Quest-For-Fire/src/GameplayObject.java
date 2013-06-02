@@ -48,4 +48,10 @@ public abstract class GameplayObject {
 	 * Usypia obiekt.
 	 */
 	
+	public abstract void work();
+	/**
+	 * Nakazuje kontynuować działanie.
+	 */
+	
+	
 }

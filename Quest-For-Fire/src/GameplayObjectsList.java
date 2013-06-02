@@ -11,6 +11,10 @@ public class GameplayObjectsList {
 		pointer = 0;
 	}
 	
+	public int size() {
+		return objectsList.size();
+	}
+	
 	public void resetPointer() {
 		this.pointer = 0;
 	}

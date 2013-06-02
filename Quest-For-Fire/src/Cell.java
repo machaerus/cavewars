@@ -11,4 +11,13 @@ public class Cell {
 		occupants.addGameObject(obj);
 	}
 	
+	public void del(GameplayObject obj) {
+		occupants.delGameObject(obj);
+	}
+	
+	public boolean empty() {
+		if(occupants.size() == 0) return true;
+		else return false;
+	}
+	
 }

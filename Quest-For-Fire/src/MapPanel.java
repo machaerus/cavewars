@@ -19,7 +19,7 @@ public class MapPanel extends JPanel implements Runnable {
 	private static final long serialVersionUID = 1794571289521271349L;
 	private static final int PWIDTH = 600; 
 	private static final int PHEIGHT = 400;
-	private static final int speed = 50;
+	private volatile int speed;
 	
 	private Thread animator; 
 	private boolean running; 
@@ -32,7 +32,8 @@ public class MapPanel extends JPanel implements Runnable {
 	private volatile GameplayObjectsList objectsList;
 	private volatile Map map;
 	
-	MapPanel(GameLogic gameLogic, Semaphore semaphore, GameplayObjectsList ol, Map map) throws Exception {
+	MapPanel(int speed, GameLogic gameLogic, Semaphore semaphore, GameplayObjectsList ol, Map map) throws Exception {
+		this.speed = speed;
 		this.gameLogic = gameLogic;
 		this.semaphore = semaphore;
 		this.objectsList = ol;
